@@ -138,7 +138,7 @@ Widget myDivider() => Padding(
       ),
     );
 
-Widget articleBuilder(list, context, {isSearch = false}) => ConditionalBuilder(
+Widget itemsBuilder(list, context, {isSearch = false}) => ConditionalBuilder(
     condition: list.length > 0,
     builder: ((context) => ListView.separated(
         physics: BouncingScrollPhysics(),

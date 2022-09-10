@@ -37,7 +37,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => BonianCubit()) ,
+          BlocProvider(create: (context) => BonianCubit()
+          ..getProducts()
+          ) ,
           BlocProvider(create: (BuildContext context) => AppCubit()
           ..changeAppMode(
             fromShared: isDark,
