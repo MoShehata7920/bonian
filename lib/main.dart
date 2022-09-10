@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
                 textTheme: TextTheme(
                   bodySmall: TextStyle(
                     fontSize: 18 ,
-                    fontWeight: FontWeight.w600,,
+                    fontWeight: FontWeight.w600,
                     color: Colors.black,
                   ),
                 ),
