@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextButton(
                       onPressed: () {},
                       child: const Text(
-                        'Register Now',
+                        'Sign Up Now',
                       ),
                     ),
                   ],

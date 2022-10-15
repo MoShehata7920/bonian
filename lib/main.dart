@@ -5,7 +5,6 @@ import 'package:bonian/shared/cubit/cubit.dart';
 import 'package:bonian/shared/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'modules/login/login_screen.dart';
 import 'modules/on_boarding/on_boarding_screen.dart';
 import 'shared/bloc_observer.dart';
@@ -76,7 +75,7 @@ class MyApp extends StatelessWidget {
             darkTheme: darkTheme,
             themeMode: ThemeMode.light,
             // AppCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-            home: startWidget,
+            home: OnBoardingScreen(),
           );
         },
       ),
