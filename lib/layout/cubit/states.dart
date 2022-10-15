@@ -2,6 +2,8 @@ abstract class BonianStates {}
 
 class BonianInitialState extends BonianStates {}
 
+class BonianBottomNavState extends BonianStates {}
+
 class BonianGetProductsSuccessState extends BonianStates {}
 
 class BonianGetProductsLoadingState extends BonianStates {}

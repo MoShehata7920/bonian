@@ -14,20 +14,23 @@ class BonianCubit extends Cubit<BonianStates> {
   BonianCubit() : super(BonianInitialState());
 
   static BonianCubit get(context) => BlocProvider.of(context);
-
   int currentIndex = 0;
-
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-      icon: Icon(Icons.production_quantity_limits),
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.sell_outlined),
+      icon: Icon(
+        Icons.production_quantity_limits,
+      ),
+      label: "Products",
     ),
     BottomNavigationBarItem(
       icon: Icon(
-        Icons.settings,
+        Icons.add,
       ),
+      label: "Donate",
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.settings),
+      label: "Settings",
     ),
   ];
 
@@ -37,16 +40,26 @@ class BonianCubit extends Cubit<BonianStates> {
     SettingsScreen(),
   ];
 
-  void changeBottomNavBar(int index) {
+  changeBottomNavBar(int index) {
     currentIndex = index;
+    emit(BonianBottomNavState());
   }
 
   List<dynamic> products = [];
+
   void getProducts() {
     emit(BonianGetProductsLoadingState());
-    DioHelper.getData(url: '', query: {}).then((value) {
-      products = value.data[''];
-      print(products[0]['']);
+    DioHelper.getData(
+      url: 'v2/top-headlines',
+      query: {
+        'country': 'eg',
+        'category': 'business',
+        'apiKey': '13967fc2c7284db1a4895b8e0d307ee9'
+      },
+    ).then((value) {
+      // print(value.data['articles'][0]['title']);
+      products = value.data['articles'];
+      print(products[0]['title']);
       emit(BonianGetProductsSuccessState());
     }).catchError((error) {
       print(error.toString());
